@@ -1,9 +1,18 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id "org.jetbrains.kotlin.jvm" version "1.3.72"
+    id "org.springframework.boot" version "2.1.5.RELEASE"
+    id "org.jetbrains.kotlin.plugin.spring" version "1.3.72"
+    id "org.jetbrains.kotlin.plugin.jpa" version "1.3.72"
 }
 
-group 'com.example'
-version '1.0-SNAPSHOT'
+apply plugin: "io.spring.dependency-management"
+
+allOpen {
+    annotation("javax.persistence.Entity")
+}
+
+group "com.example"
+version "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -11,11 +20,14 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+    implementation "org.springframework.boot:spring-boot-starter-web"
 }
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }

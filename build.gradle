@@ -1,11 +1,11 @@
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.3.72"
-    id "org.springframework.boot" version "2.1.5.RELEASE"
-    id "org.jetbrains.kotlin.plugin.spring" version "1.3.72"
-    id "org.jetbrains.kotlin.plugin.jpa" version "1.3.72"
+    id "org.springframework.boot" version "2.1.5.RELEASE" // spring boot
+    id "org.jetbrains.kotlin.plugin.spring" version "1.3.72" // for class to open class
+    id "org.jetbrains.kotlin.plugin.jpa" version "1.3.72" // for entity class autogen default constructor
 }
 
-apply plugin: "io.spring.dependency-management"
+apply plugin: "io.spring.dependency-management" // for omit library version
 
 allOpen {
     annotation("javax.persistence.Entity")

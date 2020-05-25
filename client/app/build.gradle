@@ -35,4 +35,7 @@ dependencies {
     androidTestImplementation TestDependencies.EXT_JUNIT
     androidTestImplementation TestDependencies.ESPRESSO_CORE
 
+    implementation SquareUpDependencies.RETROFIT
+    implementation SquareUpDependencies.CONVERTER_GSON
+    implementation SquareUpDependencies.LOGGING_INTERCEPTOR
 }

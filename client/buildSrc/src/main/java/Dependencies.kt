@@ -31,3 +31,11 @@ object TestDependencies {
     const val EXT_JUNIT = "androidx.test.ext:junit:1.1.1"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.2.0"
 }
+
+object SquareUpDependencies {
+    private const val RETROFIT_VER = "2.6.1"
+
+    const val RETROFIT = "com.squareup.retrofit2:retrofit:$RETROFIT_VER"
+    const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VER"
+    const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:3.14.2"
+}

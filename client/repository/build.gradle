@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: '../common.gradle'
+
+dependencies {
+    implementation SquareUpDependencies.RETROFIT
+    implementation SquareUpDependencies.CONVERTER_GSON
+    implementation SquareUpDependencies.LOGGING_INTERCEPTOR
+}

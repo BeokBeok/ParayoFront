@@ -39,3 +39,10 @@ object SquareUpDependencies {
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:$RETROFIT_VER"
     const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:3.14.2"
 }
+
+object DaggerDependencies {
+    private const val DAGGER_VER = "2.27"
+
+    const val DAGGER = "com.google.dagger:dagger:$DAGGER_VER"
+    const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:$DAGGER_VER"
+}

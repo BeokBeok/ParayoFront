@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion AndroidConfig.COMPILE_SDK
@@ -38,4 +39,7 @@ dependencies {
     implementation SquareUpDependencies.RETROFIT
     implementation SquareUpDependencies.CONVERTER_GSON
     implementation SquareUpDependencies.LOGGING_INTERCEPTOR
+
+    implementation DaggerDependencies.DAGGER
+    kapt DaggerDependencies.DAGGER_COMPILER
 }

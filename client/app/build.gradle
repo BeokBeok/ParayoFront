@@ -2,31 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply from: '../common.gradle'
 
 android {
-    compileSdkVersion AndroidConfig.COMPILE_SDK
-
     defaultConfig {
         applicationId AndroidConfig.APP_ID
-        minSdkVersion AndroidConfig.MIN_SDK
-        targetSdkVersion AndroidConfig.COMPILE_SDK
         versionCode AndroidConfig.VERSION_CODE
         versionName AndroidConfig.VERSION_NAME
 
         testInstrumentationRunner AndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation BasicDependencies.KOTLIN_STDLIB
     implementation BasicDependencies.MATERIAL
 
     implementation AndroidXDependencies.CORE_KTX
@@ -39,7 +27,4 @@ dependencies {
     implementation SquareUpDependencies.RETROFIT
     implementation SquareUpDependencies.CONVERTER_GSON
     implementation SquareUpDependencies.LOGGING_INTERCEPTOR
-
-    implementation DaggerDependencies.DAGGER
-    kapt DaggerDependencies.DAGGER_COMPILER
 }

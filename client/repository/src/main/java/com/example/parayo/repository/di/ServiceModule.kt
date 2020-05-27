@@ -7,8 +7,8 @@ import retrofit2.Retrofit
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module
-class ApiModule {
+@Module(includes = [NetworkModule::class])
+class ServiceModule {
 
     @Provides
     @Singleton

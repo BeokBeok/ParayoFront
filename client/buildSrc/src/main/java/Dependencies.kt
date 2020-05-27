@@ -50,3 +50,7 @@ object DaggerDependencies {
     const val DAGGER = "com.google.dagger:dagger:$DAGGER_VER"
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:$DAGGER_VER"
 }
+
+object Dependencies {
+    const val COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+}

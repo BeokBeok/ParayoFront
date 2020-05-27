@@ -16,6 +16,7 @@ android {
 
 dependencies {
     implementation project(":repository")
+    implementation project(":common")
 
     implementation BasicDependencies.MATERIAL
 

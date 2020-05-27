@@ -29,4 +29,6 @@ dependencies {
 
     implementation DaggerDependencies.DAGGER
     kapt DaggerDependencies.DAGGER_COMPILER
+
+    implementation AndroidXDependencies.ACTIVITY_KTX
 }

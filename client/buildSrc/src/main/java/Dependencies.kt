@@ -22,8 +22,12 @@ object BasicDependencies {
 }
 
 object AndroidXDependencies {
+    private const val LIFECYCLE_VER = "2.2.0"
     const val CORE_KTX = "androidx.core:core-ktx:1.2.0"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:1.1.3"
+
+    const val LIFECYCLE_EXT = "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE_VER"
+    const val LIFECYCLE_VIEWMODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VER"
 }
 
 object TestDependencies {

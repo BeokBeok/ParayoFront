@@ -22,6 +22,9 @@ dependencies {
     implementation AndroidXDependencies.CORE_KTX
     implementation AndroidXDependencies.CONSTRAINT_LAYOUT
 
+    implementation AndroidXDependencies.LIFECYCLE_EXT
+    implementation AndroidXDependencies.LIFECYCLE_VIEWMODEL_KTX
+
     testImplementation TestDependencies.JUNIT
     androidTestImplementation TestDependencies.EXT_JUNIT
     androidTestImplementation TestDependencies.ESPRESSO_CORE

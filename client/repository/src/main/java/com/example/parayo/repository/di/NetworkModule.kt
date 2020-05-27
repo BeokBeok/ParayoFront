@@ -25,12 +25,13 @@ class NetworkModule {
         .build()
 
     @Provides
-    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor) = OkHttpClient.Builder()
-        .addInterceptor(httpLoggingInterceptor)
-        .build()
+    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
 
     @Provides
-    fun provideGsonConverter() = GsonConverterFactory.create()
+    fun provideGsonConverter(): Converter.Factory = GsonConverterFactory.create()
 
     @Provides
     fun provideHttpLoggingInterceptor() = HttpLoggingInterceptor().apply {

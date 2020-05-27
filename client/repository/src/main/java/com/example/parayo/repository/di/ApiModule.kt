@@ -1,5 +1,6 @@
-package com.example.parayo.repository
+package com.example.parayo.repository.di
 
+import com.example.parayo.repository.ParayoApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

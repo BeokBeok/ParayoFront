@@ -1,6 +1,6 @@
 package com.example.parayo.repository.di
 
-import com.example.parayo.repository.ParayoApi
+import com.example.parayo.repository.ParayoService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -12,6 +12,6 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideParayoApi(@Named("parayoRetrofit") retrofit: Retrofit): ParayoApi =
-        retrofit.create(ParayoApi::class.java)
+    fun provideParayoService(@Named("parayoRetrofit") retrofit: Retrofit): ParayoService =
+        retrofit.create(ParayoService::class.java)
 }

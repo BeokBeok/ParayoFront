@@ -15,6 +15,7 @@ class SignUpService @Autowired constructor(
 
     fun signUp(signUpRequest: SignUpRequest) {
         validateRequest(signUpRequest)
+        checkDuplicates(signUpRequest.email)
     }
 
     private fun validateRequest(signUpRequest: SignUpRequest) {
@@ -43,4 +44,9 @@ class SignUpService @Autowired constructor(
         }
     }
 
+    private fun checkDuplicates(email: String) {
+        if (userRepository.findByEmail(email).email.isEmpty()) {
+            throw ParayoException("이미 사용 중인 이메일입니다.")
+        }
+    }
 }

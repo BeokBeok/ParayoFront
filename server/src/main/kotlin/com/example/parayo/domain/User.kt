@@ -5,9 +5,9 @@ import javax.persistence.*
 
 @Entity(name = "user")
 class User(
-    val email: String,
-    val password: String,
-    val name: String
+    val email: String = "",
+    val password: String = "",
+    val name: String = ""
 ) {
 
     @Id

@@ -1,7 +1,9 @@
 package com.example.parayo.domain.auth
 
 import com.example.parayo.common.ParayoException
+import com.example.parayo.domain.User
 import com.example.parayo.domain.UserRepository
+import org.mindrot.jbcrypt.BCrypt
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -16,6 +18,7 @@ class SignUpService @Autowired constructor(
     fun signUp(signUpRequest: SignUpRequest) {
         validateRequest(signUpRequest)
         checkDuplicates(signUpRequest.email)
+        registerUser(signUpRequest)
     }
 
     private fun validateRequest(signUpRequest: SignUpRequest) {
@@ -49,4 +52,11 @@ class SignUpService @Autowired constructor(
             throw ParayoException("이미 사용 중인 이메일입니다.")
         }
     }
+
+    private fun registerUser(signUpRequest: SignUpRequest) =
+        with(signUpRequest) {
+            val hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt())
+            val user = User(email, hashedPassword, name)
+            userRepository.save(user)
+        }
 }

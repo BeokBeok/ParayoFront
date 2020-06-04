@@ -32,7 +32,12 @@ dependencies {
     implementation BasicDependencies.KOTLIN_STDLIB
 
     implementation DaggerDependencies.DAGGER
+    implementation DaggerDependencies.DAGGER_HILT
+    implementation DaggerDependencies.DAGGER_HILT_COMMON
+    implementation DaggerDependencies.DAGGER_HILT_LIFECYCLE_VM
     kapt DaggerDependencies.DAGGER_COMPILER
+    kapt DaggerDependencies.DAGGER_HILT_ANDROID_COMPILER
+    kapt DaggerDependencies.DAGGER_HILT_COMPILER
 
     implementation AndroidXDependencies.ACTIVITY_KTX
 }

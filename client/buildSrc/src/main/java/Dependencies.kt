@@ -1,10 +1,13 @@
 object Version {
     const val KOTLIN = "1.3.72"
+    const val DAGGER_HILT_ANDROID_VER = "2.28-alpha"
 }
 
 object ProjectConfig {
     const val GRADLE = "com.android.tools.build:gradle:4.0.0"
     const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.KOTLIN}"
+    const val HILT_ANDROID_GRADLE_PLUGIN =
+        "com.google.dagger:hilt-android-gradle-plugin:${Version.DAGGER_HILT_ANDROID_VER}"
 }
 
 object AndroidConfig {
@@ -48,9 +51,17 @@ object SquareUpDependencies {
 
 object DaggerDependencies {
     private const val DAGGER_VER = "2.27"
+    private const val DAGGER_HILT_VER = "1.0.0-SNAPSHOT"
 
     const val DAGGER = "com.google.dagger:dagger:$DAGGER_VER"
+    const val DAGGER_HILT = "com.google.dagger:hilt-android:${Version.DAGGER_HILT_ANDROID_VER}"
+    const val DAGGER_HILT_COMMON = "androidx.hilt:hilt-common:$DAGGER_HILT_VER"
+    const val DAGGER_HILT_LIFECYCLE_VM = "androidx.hilt:hilt-lifecycle-viewmodel:$DAGGER_HILT_VER"
+
     const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:$DAGGER_VER"
+    const val DAGGER_HILT_ANDROID_COMPILER =
+        "com.google.dagger:hilt-android-compiler:${Version.DAGGER_HILT_ANDROID_VER}"
+    const val DAGGER_HILT_COMPILER = "androidx.hilt:hilt-compiler:$DAGGER_HILT_VER"
 }
 
 object Dependencies {

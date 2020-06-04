@@ -1,6 +1,6 @@
-package com.example.parayo.repository.di
+package com.example.parayo.di
 
-import com.example.parayo.repository.ParayoService
+import com.example.parayo.data.ParayoService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.example.parayo.common.di
+package com.example.parayo.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

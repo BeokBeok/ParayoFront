@@ -1,4 +1,4 @@
-package com.example.parayo.repository.model
+package com.example.parayo.data.model
 
 import com.google.gson.annotations.SerializedName
 

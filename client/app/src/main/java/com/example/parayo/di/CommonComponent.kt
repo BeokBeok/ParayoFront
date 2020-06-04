@@ -1,4 +1,4 @@
-package com.example.parayo.common.di
+package com.example.parayo.di
 
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds

@@ -1,6 +1,5 @@
-package com.example.parayo.repository
+package com.example.parayo.data
 
-import com.example.parayo.repository.model.ParayoResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -11,7 +10,8 @@ class ParayoRepository @Inject constructor(private val parayoService: ParayoServ
 
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 
-    override suspend fun hello(): ParayoResponse = withContext(ioDispatcher) {
-        parayoService.hello()
-    }
+    override suspend fun hello(): com.example.parayo.data.model.ParayoResponse =
+        withContext(ioDispatcher) {
+            parayoService.hello()
+        }
 }

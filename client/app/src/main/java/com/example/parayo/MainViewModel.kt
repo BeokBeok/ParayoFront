@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.parayo.repository.ParayoRepository
+import com.example.parayo.data.ParayoRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

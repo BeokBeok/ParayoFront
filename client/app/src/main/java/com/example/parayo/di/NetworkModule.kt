@@ -1,6 +1,6 @@
-package com.example.parayo.repository.di
+package com.example.parayo.di
 
-import com.example.parayo.repository.BuildConfig
+import com.example.parayo.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

@@ -1,4 +1,2 @@
-include ':common'
-include ':repository'
 include ':app'
 rootProject.name = "Parayo"

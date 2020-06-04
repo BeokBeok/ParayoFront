@@ -2,27 +2,27 @@ package com.example.parayo
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.example.parayo.base.BaseActivity
 import com.example.parayo.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : BaseActivity<ActivityMainBinding>(
+    layoutId = R.layout.activity_main
+) {
 
     private val viewModel by viewModels<MainViewModel>()
 
+    override fun setupViewModel() {
+        binding.vm = viewModel
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showContents()
+    }
 
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-            .apply {
-                lifecycleOwner = this@MainActivity
-                vm = viewModel
-            }
-
+    private fun showContents() {
         viewModel.getHello()
     }
 }

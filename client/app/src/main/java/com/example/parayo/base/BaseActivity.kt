@@ -12,11 +12,14 @@ abstract class BaseActivity<VDB : ViewDataBinding>(
 
     protected lateinit var binding: VDB
 
+    open fun setupViewModel() = Unit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView<VDB>(this, layoutId).apply {
             lifecycleOwner = this@BaseActivity
         }
+        setupViewModel()
     }
 }

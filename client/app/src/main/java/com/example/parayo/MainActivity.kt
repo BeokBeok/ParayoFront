@@ -10,7 +10,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(
     layoutId = R.layout.activity_main
 ) {
-
     private val viewModel by viewModels<MainViewModel>()
 
     override fun setupViewModel() {

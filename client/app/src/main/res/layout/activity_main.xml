@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.example.parayo.MainViewModel" />
+            type="com.example.parayo.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        tools:context=".MainActivity">
+        tools:context=".main.MainActivity">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_main_title"
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:hint="@string/hint_email"
+            android:text="@={vm.email}"
             app:layout_constraintBottom_toTopOf="@id/iet_main_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:hint="@string/hint_name"
+            android:text="@={vm.name}"
             app:layout_constraintBottom_toTopOf="@id/iet_main_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +62,7 @@
             android:layout_marginBottom="20dp"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
+            android:text="@={vm.password}"
             app:layout_constraintBottom_toTopOf="@id/btn_main_register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +72,7 @@
             android:id="@+id/btn_main_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.doSignUp()}"
             android:text="@string/title_sign_up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

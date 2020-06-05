@@ -1,6 +1,6 @@
 package com.example.parayo.di
 
-import com.example.parayo.data.ParayoService
+import com.example.parayo.domain.ParayoService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

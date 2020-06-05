@@ -12,7 +12,7 @@ class SignUpService @Autowired constructor(
     private val userRepository: UserRepository
 ) {
     private val IS_VALID_EMAIL_REGEX by lazy {
-        "\\A(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\z".toRegex()
+        "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}\$".toRegex()
     }
 
     fun signUp(signUpRequest: SignUpRequest) {
@@ -48,7 +48,7 @@ class SignUpService @Autowired constructor(
     }
 
     private fun checkDuplicates(email: String) {
-        if (userRepository.findByEmail(email).email.isEmpty()) {
+        userRepository.findByEmail(email).let {
             throw ParayoException("이미 사용 중인 이메일입니다.")
         }
     }

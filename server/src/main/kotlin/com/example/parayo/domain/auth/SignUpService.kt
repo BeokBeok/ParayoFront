@@ -48,7 +48,7 @@ class SignUpService @Autowired constructor(
     }
 
     private fun checkDuplicates(email: String) {
-        userRepository.findByEmail(email).let {
+        userRepository.findByEmail(email)?.let {
             throw ParayoException("이미 사용 중인 이메일입니다.")
         }
     }

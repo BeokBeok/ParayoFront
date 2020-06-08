@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.parayo.R
 import com.example.parayo.base.BaseViewModel
 import com.example.parayo.domain.ParayoRemoteRepository
-import com.example.parayo.domain.entity.ParayoSignUpRequest
+import com.example.parayo.domain.entity.ParayoAuthRequest
 import com.example.parayo.util.Result
 import com.example.parayo.util.succeeded
 import kotlinx.coroutines.launch
@@ -24,7 +24,7 @@ class AuthViewModel @ViewModelInject constructor(
     val successLogin: LiveData<Boolean> get() = _successLogin
 
     fun doSignUp() = viewModelScope.launch {
-        val signUpData = ParayoSignUpRequest(
+        val signUpData = ParayoAuthRequest(
             email = email.value,
             name = name.value,
             password = password.value
@@ -41,18 +41,18 @@ class AuthViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun checkValidData(signUpRequest: ParayoSignUpRequest): Boolean =
+    private fun checkValidData(authRequest: ParayoAuthRequest): Boolean =
         when {
-            signUpRequest.isNotValidEmail() -> {
+            authRequest.isNotValidEmail() -> {
                 _throwable.value = IllegalStateException(R.string.msg_err_invalid_email.toString())
                 true
             }
-            signUpRequest.isNotValidPassword() -> {
+            authRequest.isNotValidPassword() -> {
                 _throwable.value =
                     IllegalStateException(R.string.msg_err_invalid_password.toString())
                 true
             }
-            signUpRequest.isNotValidName() -> {
+            authRequest.isNotValidName() -> {
                 _throwable.value = IllegalStateException(R.string.msg_err_invalid_name.toString())
                 true
             }

@@ -6,14 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.parayo.R
 import com.example.parayo.base.BaseViewModel
-import com.example.parayo.domain.ParayoRemoteRepository
-import com.example.parayo.domain.entity.ParayoAuthRequest
+import com.example.parayo.domain.AuthRepository
+import com.example.parayo.domain.entity.AuthRequest
 import com.example.parayo.util.Result
 import com.example.parayo.util.succeeded
 import kotlinx.coroutines.launch
 
 class AuthViewModel @ViewModelInject constructor(
-    private val parayoRemoteRepository: ParayoRemoteRepository
+    private val authRepository: AuthRepository
 ) : BaseViewModel() {
 
     val email = MutableLiveData("")
@@ -24,7 +24,7 @@ class AuthViewModel @ViewModelInject constructor(
     val successLogin: LiveData<Boolean> get() = _successLogin
 
     fun doSignUp() = viewModelScope.launch {
-        val signUpData = ParayoAuthRequest(
+        val signUpData = AuthRequest(
             email = email.value,
             name = name.value,
             password = password.value
@@ -32,7 +32,7 @@ class AuthViewModel @ViewModelInject constructor(
 
         if (checkValidData(signUpData)) return@launch
 
-        parayoRemoteRepository.doSignUp(signUpData).let {
+        authRepository.doSignUp(signUpData).let {
             if (it.succeeded) {
                 _successLogin.value = it.succeeded
             } else {
@@ -41,7 +41,7 @@ class AuthViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun checkValidData(authRequest: ParayoAuthRequest): Boolean =
+    private fun checkValidData(authRequest: AuthRequest): Boolean =
         when {
             authRequest.isNotValidEmail() -> {
                 _throwable.value = IllegalStateException(R.string.msg_err_invalid_email.toString())

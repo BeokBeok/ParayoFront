@@ -10,14 +10,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 
 @Module
 @InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
     @Provides
-    @Named("parayoRetrofit")
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         gsonConverter: Converter.Factory

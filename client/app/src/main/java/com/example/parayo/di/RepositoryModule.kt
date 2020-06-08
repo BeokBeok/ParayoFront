@@ -1,8 +1,8 @@
 package com.example.parayo.di
 
-import com.example.parayo.domain.ParayoRemoteRepository
-import com.example.parayo.domain.ParayoService
-import com.example.parayo.domain.remote.ParayoDataSource
+import com.example.parayo.domain.AuthRepository
+import com.example.parayo.domain.AuthService
+import com.example.parayo.domain.remote.AuthDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,6 @@ class RepositoryModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun provideParayoRepository(parayoService: ParayoService): ParayoDataSource =
-        ParayoRemoteRepository(parayoService)
-
+    fun provideParayoRepository(authService: AuthService): AuthDataSource =
+        AuthRepository(authService)
 }

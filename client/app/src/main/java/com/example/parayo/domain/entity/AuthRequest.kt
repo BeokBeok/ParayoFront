@@ -2,7 +2,7 @@ package com.example.parayo.domain.entity
 
 import android.util.Patterns
 
-data class ParayoAuthRequest(
+data class AuthRequest(
     val email: String?,
     val password: String?,
     val name: String?

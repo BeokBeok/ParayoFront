@@ -1,9 +1,9 @@
 package com.example.parayo.domain.entity
 
-import com.example.parayo.common.ParayoModel
+import com.example.parayo.auth.model.AuthModel
 import com.google.gson.annotations.SerializedName
 
-data class ParayoResponse(
+data class Response(
 
 	@SerializedName("data")
 	val data: Any? = null,
@@ -15,4 +15,5 @@ data class ParayoResponse(
 	val message: String? = null
 )
 
-fun ParayoResponse.mapToModel(): ParayoModel = ParayoModel(data = data as? String ?: "")
+fun Response.mapToModel(): AuthModel =
+	AuthModel(data = data as? String ?: "")

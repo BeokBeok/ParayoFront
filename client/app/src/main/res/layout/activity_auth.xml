@@ -74,10 +74,21 @@
             android:layout_height="wrap_content"
             android:onClick="@{() -> vm.doSignUp()}"
             android:text="@string/title_sign_up"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_main_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iet_main_password" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_main_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> vm.doSignIn()}"
+            android:text="@string/title_sign_in"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_main_register" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -37,7 +37,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(
             })
             successLogin.observe(this@AuthActivity, Observer {
                 if (it) {
-                    showToast(getString(R.string.msg_success_sign_up))
+                    showToast(getString(R.string.msg_success_login))
                 }
             })
         }

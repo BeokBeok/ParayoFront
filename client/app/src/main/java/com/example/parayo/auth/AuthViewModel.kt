@@ -24,15 +24,27 @@ class AuthViewModel @ViewModelInject constructor(
     val successLogin: LiveData<Boolean> get() = _successLogin
 
     fun doSignUp() = viewModelScope.launch {
-        val signUpData = AuthRequest(
-            email = email.value,
-            name = name.value,
-            password = password.value
-        )
+        val signUpData =
+            AuthRequest(email = email.value, password = password.value, name = name.value)
 
         if (checkValidData(signUpData)) return@launch
 
         authRepository.doSignUp(signUpData).let {
+            if (it.succeeded) {
+                doSignIn()
+            } else {
+                _throwable.value = (it as Result.Failure).exception
+            }
+        }
+    }
+
+    fun doSignIn() = viewModelScope.launch {
+        val authRequest =
+            AuthRequest(email = email.value, password = password.value, name = name.value)
+
+        if (checkValidData(authRequest)) return@launch
+
+        authRepository.doSignIn(authRequest).let {
             if (it.succeeded) {
                 _successLogin.value = it.succeeded
             } else {

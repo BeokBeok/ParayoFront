@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1")
-class UserApiController @Autowired constructor(
+class AuthController @Autowired constructor(
     private val signUpService: SignUpService,
     private val signInService: SignInService
 ) {

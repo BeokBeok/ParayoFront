@@ -20,15 +20,8 @@ class AuthViewModel @ViewModelInject constructor(
     val name = MutableLiveData("")
     val password = MutableLiveData("")
 
-    private val _hello = MutableLiveData<String>()
-    val hello: LiveData<String> get() = _hello
-
     private val _successLogin = MutableLiveData<Boolean>()
     val successLogin: LiveData<Boolean> get() = _successLogin
-
-    fun getHello() = viewModelScope.launch {
-        _hello.value = parayoRemoteRepository.getHello().data as? String ?: ""
-    }
 
     fun doSignUp() = viewModelScope.launch {
         val signUpData = ParayoSignUpRequest(

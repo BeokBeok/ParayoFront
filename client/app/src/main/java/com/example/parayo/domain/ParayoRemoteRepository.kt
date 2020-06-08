@@ -1,7 +1,6 @@
 package com.example.parayo.domain
 
 import com.example.parayo.common.ParayoModel
-import com.example.parayo.domain.entity.ParayoResponse
 import com.example.parayo.domain.entity.ParayoSignUpRequest
 import com.example.parayo.domain.entity.mapToModel
 import com.example.parayo.domain.remote.ParayoDataSource
@@ -15,11 +14,6 @@ class ParayoRemoteRepository @Inject constructor(private val parayoService: Para
     ParayoDataSource {
 
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
-
-    override suspend fun getHello(): ParayoResponse =
-        withContext(ioDispatcher) {
-            parayoService.hello()
-        }
 
     override suspend fun doSignUp(signUpRequest: ParayoSignUpRequest): Result<ParayoModel> =
         withContext(ioDispatcher) {

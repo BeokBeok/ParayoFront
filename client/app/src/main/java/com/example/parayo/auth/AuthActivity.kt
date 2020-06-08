@@ -22,11 +22,6 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupObserver()
-        showContents()
-    }
-
-    private fun showContents() {
-        viewModel.getHello()
     }
 
     private fun setupObserver() {

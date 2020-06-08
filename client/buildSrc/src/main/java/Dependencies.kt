@@ -33,6 +33,8 @@ object AndroidXDependencies {
     const val LIFECYCLE_VIEWMODEL_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:$LIFECYCLE_VER"
 
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx:1.1.0"
+
+    const val PREFERENCE_KTX = "androidx.preference:preference-ktx:1.1.1"
 }
 
 object TestDependencies {

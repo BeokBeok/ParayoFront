@@ -40,4 +40,6 @@ dependencies {
     kapt DaggerDependencies.DAGGER_HILT_COMPILER
 
     implementation AndroidXDependencies.ACTIVITY_KTX
+
+    implementation AndroidXDependencies.PREFERENCE_KTX
 }

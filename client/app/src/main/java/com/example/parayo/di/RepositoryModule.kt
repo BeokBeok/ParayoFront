@@ -15,6 +15,6 @@ class RepositoryModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun provideParayoRepository(authService: AuthService): AuthDataSource =
+    fun provideAuthRepository(authService: AuthService): AuthDataSource =
         AuthRepository(authService)
 }

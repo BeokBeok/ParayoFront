@@ -10,4 +10,7 @@ interface AuthService {
 
     @POST("api/v1/users")
     suspend fun signUp(@Body authRequest: AuthRequest): Response<AuthModel>
+
+    @POST("api/v1/signin")
+    suspend fun signIn(@Body authRequest: AuthRequest): Response<AuthModel>
 }

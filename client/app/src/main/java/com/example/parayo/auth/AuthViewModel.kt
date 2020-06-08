@@ -1,4 +1,4 @@
-package com.example.parayo.main
+package com.example.parayo.auth
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -12,7 +12,7 @@ import com.example.parayo.util.Result
 import com.example.parayo.util.succeeded
 import kotlinx.coroutines.launch
 
-class MainViewModel @ViewModelInject constructor(
+class AuthViewModel @ViewModelInject constructor(
     private val parayoRemoteRepository: ParayoRemoteRepository
 ) : BaseViewModel() {
 

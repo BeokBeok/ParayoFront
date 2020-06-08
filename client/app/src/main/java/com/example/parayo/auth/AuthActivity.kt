@@ -1,19 +1,19 @@
-package com.example.parayo.main
+package com.example.parayo.auth
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.parayo.R
 import com.example.parayo.base.BaseActivity
-import com.example.parayo.databinding.ActivityMainBinding
+import com.example.parayo.databinding.ActivityAuthBinding
 import com.example.parayo.ext.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>(
-    layoutId = R.layout.activity_main
+class AuthActivity : BaseActivity<ActivityAuthBinding>(
+    layoutId = R.layout.activity_auth
 ) {
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<AuthViewModel>()
 
     override fun setupViewModel() {
         binding.vm = viewModel
@@ -31,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
 
     private fun setupObserver() {
         viewModel.run {
-            throwable.observe(this@MainActivity, Observer {
+            throwable.observe(this@AuthActivity, Observer {
                 try {
                     val stringRes = it.message?.toInt() ?: -1
                     if (stringRes == -1) return@Observer
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                     showToast(it.message ?: "")
                 }
             })
-            successLogin.observe(this@MainActivity, Observer {
+            successLogin.observe(this@AuthActivity, Observer {
                 if (it) {
                     showToast(getString(R.string.msg_success_sign_up))
                 }

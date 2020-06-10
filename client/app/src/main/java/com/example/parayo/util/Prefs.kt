@@ -15,7 +15,7 @@ object Prefs {
         PreferenceManager.getDefaultSharedPreferences(ParayoApplication.instance)
     }
 
-    private var token
+    var token
         get() = prefs.getString(TOKEN, "")
         set(value) = prefs.edit().putString(TOKEN, value ?: "").apply()
 

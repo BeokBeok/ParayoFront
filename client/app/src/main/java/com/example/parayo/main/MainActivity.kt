@@ -13,4 +13,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
 
     private val viewModel by viewModels<MainViewModel>()
 
+    override fun setupObserver() = Unit
 }

@@ -1,6 +1,5 @@
 package com.example.parayo.auth
 
-import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.parayo.R
@@ -21,12 +20,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(
         binding.vm = viewModel
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupObserver()
-    }
-
-    private fun setupObserver() {
+    override fun setupObserver() {
         viewModel.run {
             throwable.observe(this@AuthActivity, Observer {
                 try {

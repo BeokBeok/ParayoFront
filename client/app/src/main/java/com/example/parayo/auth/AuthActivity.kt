@@ -7,6 +7,8 @@ import com.example.parayo.R
 import com.example.parayo.base.BaseActivity
 import com.example.parayo.databinding.ActivityAuthBinding
 import com.example.parayo.ext.showToast
+import com.example.parayo.ext.startActivity
+import com.example.parayo.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +40,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(
             successLogin.observe(this@AuthActivity, Observer {
                 if (it) {
                     showToast(getString(R.string.msg_success_login))
+                    startActivity<MainActivity>()
                 }
             })
         }

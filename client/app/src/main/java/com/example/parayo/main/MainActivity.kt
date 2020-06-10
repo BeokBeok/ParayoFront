@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.parayo.R
 import com.example.parayo.base.BaseActivity
 import com.example.parayo.databinding.ActivityMainBinding
+import com.example.parayo.ext.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,5 +43,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
         )
         binding.dlMainDrawer.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
+        binding.nvMainNaviView.setNavigationItemSelectedListener { menuItem ->
+            binding.dlMainDrawer.closeDrawers()
+
+            when (menuItem.itemId) {
+                R.id.menu_my_inquiry -> showToast("내 문의")
+                R.id.menu_logout -> showToast("로그아웃")
+            }
+            menuItem.isChecked = false
+            return@setNavigationItemSelectedListener true
+        }
     }
 }

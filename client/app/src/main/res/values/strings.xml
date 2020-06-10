@@ -14,4 +14,6 @@
 
     <string name="open_drawer_description">open drawer</string>
     <string name="close_drawer_description">close drawer</string>
+    <string name="title_my_inquiry">내 문의</string>
+    <string name="title_logout">로그아웃</string>
 </resources>

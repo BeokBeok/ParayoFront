@@ -11,4 +11,7 @@
     <string name="msg_err_invalid_password">비밀번호는 8자 이상 20자 이하로 입력해주세요.</string>
     <string name="msg_err_unknown_occur">알 수 없는 에러가 발생하였습니다.</string>
     <string name="msg_success_login">로그인 하였습니다.</string>
+
+    <string name="open_drawer_description">open drawer</string>
+    <string name="close_drawer_description">close drawer</string>
 </resources>

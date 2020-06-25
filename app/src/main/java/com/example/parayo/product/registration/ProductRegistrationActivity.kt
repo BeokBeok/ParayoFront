@@ -13,17 +13,10 @@ class ProductRegistrationActivity : BaseActivity<ActivityProductRegistrationBind
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupToolbar()
+        setupActionBar(title = getString(R.string.title_product_registration))
     }
 
     override fun setupViewModel() = Unit
 
     override fun setupObserver() = Unit
-
-    private fun setupToolbar() {
-        binding.tbProductRegistration.run {
-            setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-            setOnClickListener { finish() }
-        }
-    }
 }

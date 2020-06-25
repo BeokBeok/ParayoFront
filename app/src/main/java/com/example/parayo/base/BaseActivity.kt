@@ -1,6 +1,8 @@
 package com.example.parayo.base
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -23,5 +25,23 @@ abstract class BaseActivity<VDB : ViewDataBinding>(
         }
         setupViewModel()
         setupObserver()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    open fun setupActionBar(title: String?) {
+        if (title == null) return
+        supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            this.title = title
+            setBackgroundDrawable(
+                ColorDrawable(resources.getColor(android.R.color.white, null))
+            )
+        }
     }
 }

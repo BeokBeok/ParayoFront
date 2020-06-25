@@ -29,7 +29,9 @@
             android:noHistory="true" />
 
         <activity android:name=".main.MainActivity" />
-        <activity android:name=".product.registration.ProductRegistrationActivity" />
+        <activity
+            android:name=".product.registration.ProductRegistrationActivity"
+            android:theme="@style/Theme.MaterialComponents.Light" />
 
     </application>
 

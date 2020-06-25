@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.lifecycle.Observer
 import com.example.parayo.R
 import com.example.parayo.base.BaseActivity
 import com.example.parayo.databinding.ActivityMainBinding
 import com.example.parayo.ext.showToast
+import com.example.parayo.ext.startActivity
+import com.example.parayo.product.registration.ProductRegistrationActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +26,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
         setupDrawer()
     }
 
-    override fun setupObserver() = Unit
+    override fun setupViewModel() {
+        binding.vm = viewModel
+    }
+
+    override fun setupObserver() {
+        viewModel.productRegistration.observe(this, Observer {
+            startActivity<ProductRegistrationActivity>()
+        })
+    }
 
     private fun setupToolbar() {
         binding.tbMainToolbar.run {

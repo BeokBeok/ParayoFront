@@ -52,15 +52,11 @@ object SquareUpDependencies {
 }
 
 object DaggerDependencies {
-    private const val DAGGER_VER = "2.27"
-    private const val DAGGER_HILT_VER = "1.0.0-SNAPSHOT"
+    private const val DAGGER_HILT_VER = "1.0.0-alpha01"
 
-    const val DAGGER = "com.google.dagger:dagger:$DAGGER_VER"
     const val DAGGER_HILT = "com.google.dagger:hilt-android:${Version.DAGGER_HILT_ANDROID_VER}"
-    const val DAGGER_HILT_COMMON = "androidx.hilt:hilt-common:$DAGGER_HILT_VER"
     const val DAGGER_HILT_LIFECYCLE_VM = "androidx.hilt:hilt-lifecycle-viewmodel:$DAGGER_HILT_VER"
 
-    const val DAGGER_COMPILER = "com.google.dagger:dagger-compiler:$DAGGER_VER"
     const val DAGGER_HILT_ANDROID_COMPILER =
         "com.google.dagger:hilt-android-compiler:${Version.DAGGER_HILT_ANDROID_VER}"
     const val DAGGER_HILT_COMPILER = "androidx.hilt:hilt-compiler:$DAGGER_HILT_VER"

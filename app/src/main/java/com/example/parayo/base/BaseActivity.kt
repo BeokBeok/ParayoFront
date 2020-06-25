@@ -12,7 +12,7 @@ abstract class BaseActivity<VDB : ViewDataBinding>(
 
     protected lateinit var binding: VDB
 
-    open fun setupViewModel() = Unit
+    abstract fun setupViewModel()
     abstract fun setupObserver()
 
     override fun onCreate(savedInstanceState: Bundle?) {

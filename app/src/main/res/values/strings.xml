@@ -16,4 +16,6 @@
     <string name="close_drawer_description">close drawer</string>
     <string name="title_my_inquiry">내 문의</string>
     <string name="title_logout">로그아웃</string>
+
+    <string name="title_product_registration">상품 등록</string>
 </resources>

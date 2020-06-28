@@ -10,7 +10,6 @@ import com.example.parayo.domain.AuthRepository
 import com.example.parayo.domain.entity.AuthRequest
 import com.example.parayo.util.Prefs
 import com.example.parayo.util.Result
-import com.example.parayo.util.succeeded
 import kotlinx.coroutines.launch
 
 class AuthViewModel @ViewModelInject constructor(
@@ -30,12 +29,9 @@ class AuthViewModel @ViewModelInject constructor(
 
         if (checkValidData(signUpData)) return@launch
 
-        authRepository.doSignUp(signUpData).let {
-            if (it.succeeded) {
-                doSignIn()
-            } else {
-                _throwable.value = (it as Result.Failure).exception
-            }
+        when (val result = authRepository.doSignUp(signUpData)) {
+            is Result.Success -> doSignIn()
+            is Result.Failure -> _throwable.value = result.exception
         }
     }
 
@@ -45,13 +41,12 @@ class AuthViewModel @ViewModelInject constructor(
 
         if (checkValidData(authRequest)) return@launch
 
-        authRepository.doSignIn(authRequest).let {
-            if (it.succeeded) {
-                Prefs.saveAuth((it as Result.Success).data)
-                _successLogin.value = it.succeeded
-            } else {
-                _throwable.value = (it as Result.Failure).exception
+        when (val result = authRepository.doSignIn(authRequest)) {
+            is Result.Success -> {
+                Prefs.saveAuth(result.data)
+                _successLogin.value = true
             }
+            is Result.Failure -> _throwable.value = result.exception
         }
     }
 

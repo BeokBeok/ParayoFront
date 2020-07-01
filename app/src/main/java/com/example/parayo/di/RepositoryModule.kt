@@ -1,8 +1,8 @@
 package com.example.parayo.di
 
-import com.example.parayo.domain.AuthDataSource
-import com.example.parayo.domain.AuthRepository
-import com.example.parayo.domain.AuthService
+import com.example.parayo.domain.auth.AuthDataSource
+import com.example.parayo.domain.auth.AuthRepository
+import com.example.parayo.domain.auth.AuthService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

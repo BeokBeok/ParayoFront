@@ -1,4 +1,4 @@
-package com.example.parayo.domain.entity
+package com.example.parayo.domain.auth.entity
 
 import android.util.Patterns
 

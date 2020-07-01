@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.parayo.R
 import com.example.parayo.base.BaseViewModel
-import com.example.parayo.domain.AuthRepository
-import com.example.parayo.domain.entity.AuthRequest
+import com.example.parayo.domain.auth.AuthRepository
+import com.example.parayo.domain.auth.entity.AuthRequest
 import com.example.parayo.util.Prefs
 import com.example.parayo.util.Result
 import kotlinx.coroutines.launch

@@ -37,4 +37,26 @@ class ProductRegistrationViewModel @ViewModelInject constructor() : BaseViewMode
 
     private val _descriptionLength = MutableLiveData("0/$descriptionLimit")
     val descriptionLength: LiveData<String> get() = _descriptionLength
+
+    fun checkProductNameLength() {
+        _productName.value?.let {
+            if (it.length > productNameLimit) {
+                _productName.value = it.take(productNameLimit)
+            }
+            _productNameLength.value = "${_productName.value?.length}/$productNameLimit"
+        }
+    }
+
+    fun checkDescriptionLength() {
+        _description.value?.let {
+            if (it.length > descriptionLimit) {
+                _description.value = it.take(descriptionLimit)
+            }
+            _descriptionLength.value = "${_description.value?.length}/$descriptionLimit"
+        }
+    }
+
+    fun onCategorySelect(position: Int) {
+        categoryIdSelected = categoryList[position].id
+    }
 }

@@ -1,7 +1,7 @@
 package com.example.parayo.domain.auth
 
 import com.example.parayo.auth.model.AuthModel
-import com.example.parayo.domain.auth.entity.AuthRequest
+import com.example.parayo.auth.model.AuthRequest
 import com.example.parayo.util.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

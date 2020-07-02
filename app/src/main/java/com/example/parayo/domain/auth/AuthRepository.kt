@@ -2,6 +2,7 @@ package com.example.parayo.domain.auth
 
 import com.example.parayo.auth.model.AuthModel
 import com.example.parayo.auth.model.AuthRequest
+import com.example.parayo.auth.model.mapToPresenter
 import com.example.parayo.util.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +33,7 @@ class AuthRepository @Inject constructor(private val authService: AuthService) :
             return@withContext try {
                 val result = authService.signIn(authRequest)
                 if (result.success) {
-                    Result.Success(result.data ?: AuthModel())
+                    Result.Success(result.data.mapToPresenter() ?: AuthModel())
                 } else {
                     Result.Failure(IllegalStateException(result.message))
                 }

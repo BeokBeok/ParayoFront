@@ -31,4 +31,6 @@ dependencies {
     implementation SquareUpDependencies.RETROFIT
     implementation SquareUpDependencies.CONVERTER_GSON
     implementation SquareUpDependencies.LOGGING_INTERCEPTOR
+
+    implementation Dependencies.TED_IMAGE_PICKER
 }

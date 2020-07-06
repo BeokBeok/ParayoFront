@@ -64,4 +64,6 @@ object DaggerDependencies {
 
 object Dependencies {
     const val COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+
+    const val TED_IMAGE_PICKER = "gun0912.ted:tedimagepicker:1.1.3"
 }

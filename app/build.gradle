@@ -33,4 +33,7 @@ dependencies {
     implementation SquareUpDependencies.LOGGING_INTERCEPTOR
 
     implementation Dependencies.TED_IMAGE_PICKER
+
+    implementation Dependencies.GLIDE
+    kapt Dependencies.GLIDE_COMPILER
 }

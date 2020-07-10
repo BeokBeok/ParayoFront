@@ -63,7 +63,11 @@ object DaggerDependencies {
 }
 
 object Dependencies {
+    private const val GLIDE_VER = "4.11.0"
+
     const val COROUTINE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
 
     const val TED_IMAGE_PICKER = "gun0912.ted:tedimagepicker:1.1.3"
+    const val GLIDE = "com.github.bumptech.glide:glide:$GLIDE_VER"
+    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:$GLIDE_VER"
 }

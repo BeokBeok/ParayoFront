@@ -1,15 +1,20 @@
 package com.example.parayo.product.registration
 
+import android.net.Uri
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.parayo.base.BaseViewModel
+import com.example.parayo.domain.product.ProductRepository
 import com.example.parayo.product.category.categoryList
 
-class ProductRegistrationViewModel @ViewModelInject constructor() : BaseViewModel() {
+class ProductRegistrationViewModel @ViewModelInject constructor(
+    private val productRepository: ProductRepository
+) : BaseViewModel() {
 
-    private val _imageUrls = mutableListOf<MutableLiveData<String>>()
-    val imageUrls: List<LiveData<String>> get() = _imageUrls
+    private val _imageUris =
+        arrayOf(MutableLiveData<Uri>(), MutableLiveData(), MutableLiveData(), MutableLiveData())
+    val imageUris: Array<LiveData<Uri>> get() = _imageUris.map { it }.toTypedArray()
 
     private val _imageIds = MutableLiveData<List<Long>>()
     val imageIds: LiveData<List<Long>> get() = _imageIds
@@ -37,6 +42,10 @@ class ProductRegistrationViewModel @ViewModelInject constructor() : BaseViewMode
 
     private val _descriptionLength = MutableLiveData("0/$descriptionLimit")
     val descriptionLength: LiveData<String> get() = _descriptionLength
+
+    val imgUpload = fun(index: Int, uri: Uri) {
+        _imageUris[index].value = uri
+    }
 
     fun checkProductNameLength() {
         _productName.value?.let {

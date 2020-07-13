@@ -26,7 +26,8 @@
 
         <activity
             android:name=".auth.AuthActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".main.MainActivity" />
         <activity

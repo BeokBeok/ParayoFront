@@ -29,7 +29,6 @@ class AuthRepository @Inject constructor(private val authService: AuthService) :
     override suspend fun doSignIn(authRequest: AuthRequest): Result<AuthModel> =
         withContext(ioDispatcher) {
             return@withContext try {
-                println("${Thread.currentThread().name}")
                 val result = authService.signIn(authRequest)
                 if (result.success) {
                     Result.Success(result.data.mapToPresenter() ?: AuthModel())

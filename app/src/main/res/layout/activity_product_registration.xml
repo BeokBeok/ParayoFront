@@ -10,62 +10,103 @@
             type="com.example.parayo.product.registration.ProductRegistrationViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="12dp">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_product_registration_one"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toStartOf="@id/iv_product_registration_two"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:index="@{0}"
-            bind:showImagePicker="@{vm.imgUpload}" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_product_registration_two"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="12dp"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toStartOf="@id/iv_product_registration_three"
-            app:layout_constraintStart_toEndOf="@id/iv_product_registration_one"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:index="@{1}"
-            bind:showImagePicker="@{vm.imgUpload}" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_product_registration_one"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintEnd_toStartOf="@id/iv_product_registration_two"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:index="@{0}"
+                bind:showImagePicker="@{vm.imgUpload}" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_product_registration_three"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="12dp"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toStartOf="@id/iv_product_registration_four"
-            app:layout_constraintStart_toEndOf="@id/iv_product_registration_two"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:index="@{2}"
-            bind:showImagePicker="@{vm.imgUpload}" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_product_registration_two"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="12dp"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintEnd_toStartOf="@id/iv_product_registration_three"
+                app:layout_constraintStart_toEndOf="@id/iv_product_registration_one"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:index="@{1}"
+                bind:showImagePicker="@{vm.imgUpload}" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_product_registration_four"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="12dp"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_product_registration_three"
-            app:layout_constraintTop_toTopOf="parent"
-            bind:index="@{3}"
-            bind:showImagePicker="@{vm.imgUpload}" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_product_registration_three"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="12dp"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintEnd_toStartOf="@id/iv_product_registration_four"
+                app:layout_constraintStart_toEndOf="@id/iv_product_registration_two"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:index="@{2}"
+                bind:showImagePicker="@{vm.imgUpload}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_product_registration_four"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="12dp"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_product_registration_three"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:index="@{3}"
+                bind:showImagePicker="@{vm.imgUpload}" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/br_product_registration_image_barrier"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:barrierAllowsGoneWidgets="false"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="iv_product_registration_one, iv_product_registration_two, iv_product_registration_three, iv_product_registration_four"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_product_registration_one" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_product_registration_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="@string/title_product_name"
+                app:counterEnabled="true"
+                app:counterMaxLength="40"
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/br_product_registration_image_barrier"
+                bind:textInputLayoutErrorText="@{@string/msg_err_over_product_name}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{vm.productName}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>

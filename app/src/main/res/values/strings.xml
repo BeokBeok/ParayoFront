@@ -18,4 +18,6 @@
     <string name="title_logout">로그아웃</string>
 
     <string name="title_product_registration">상품 등록</string>
+    <string name="title_product_name">상품명</string>
+    <string name="msg_err_over_product_name">상품명의 길이는 40자까지 가능합니다.</string>
 </resources>

@@ -22,4 +22,5 @@
     <string name="msg_err_over_product_name">상품명의 길이는 40자까지 가능합니다.</string>
     <string name="title_product_description">상품 설명</string>
     <string name="msg_err_over_product_description">상품 설명의 길이는 500자까지 가능합니다.</string>
+    <string name="msg_err_required_value">필수 값입니다.</string>
 </resources>

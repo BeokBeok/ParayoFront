@@ -102,7 +102,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:text="@{vm.productName}" />
+                    android:text="@={vm.productName}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_product_registration_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/title_product_description"
+                app:counterEnabled="true"
+                app:counterMaxLength="500"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_product_registration_name"
+                bind:textInputLayoutErrorText="@{@string/msg_err_over_product_description}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:lines="3"
+                    android:text="@={vm.description}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -26,9 +26,7 @@ class ProductRegistrationViewModel @ViewModelInject constructor(
     val imageIds: LiveData<List<Long>> get() = _imageIds
 
     val productName = MutableLiveData<String>()
-
-    private val _description = MutableLiveData<String>()
-    val description: LiveData<String> get() = _description
+    val description = MutableLiveData<String>()
 
     private val _price = MutableLiveData<String>()
     val price: LiveData<String> get() = _price
@@ -39,22 +37,8 @@ class ProductRegistrationViewModel @ViewModelInject constructor(
 
     private var categoryIdSelected = categoryList[0].id
 
-    private val descriptionLimit = 500
-
-    private val _descriptionLength = MutableLiveData("0/$descriptionLimit")
-    val descriptionLength: LiveData<String> get() = _descriptionLength
-
     val imgUpload = fun(index: Int, uri: Uri) {
         _imageUris[index].value = uri
-    }
-
-    fun checkDescriptionLength() {
-        _description.value?.let {
-            if (it.length > descriptionLimit) {
-                _description.value = it.take(descriptionLimit)
-            }
-            _descriptionLength.value = "${_description.value?.length}/$descriptionLimit"
-        }
     }
 
     fun onCategorySelect(position: Int) {

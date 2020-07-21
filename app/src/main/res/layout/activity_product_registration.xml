@@ -142,6 +142,7 @@
                 tools:listitem="@android:layout/list_content" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_product_registration_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -160,6 +161,16 @@
                     android:text="@={vm.price}" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/title_product_registration"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_product_registration_price" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

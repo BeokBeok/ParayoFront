@@ -27,12 +27,9 @@ class ProductRegistrationViewModel @ViewModelInject constructor(
 
     val productName = MutableLiveData<String>()
     val description = MutableLiveData<String>()
+    val price = MutableLiveData<String>()
 
-    private val _price = MutableLiveData<String>()
-    val price: LiveData<String> get() = _price
-
-    private val _categories =
-        MutableLiveData<List<String>>(categoryList.map { it.name })
+    private val _categories = MutableLiveData<List<String>>(categoryList.map { it.name })
     val categories: LiveData<List<String>> get() = _categories
 
     private var categoryIdSelected = categoryList[0].id

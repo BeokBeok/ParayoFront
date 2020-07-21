@@ -1,6 +1,9 @@
 package com.example.parayo.product.registration
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.parayo.R
@@ -39,5 +42,25 @@ class ProductRegistrationActivity : BaseActivity<ActivityProductRegistrationBind
                 )
             })
         }
+        viewModel.categories.observe(this, Observer {
+            binding.spinProductRegistrationCategory.adapter = ArrayAdapter(
+                this@ProductRegistrationActivity,
+                android.R.layout.simple_spinner_dropdown_item,
+                it
+            )
+            binding.spinProductRegistrationCategory.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(parent: AdapterView<*>?) = Unit
+
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        viewModel.onCategorySelect(position)
+                    }
+                }
+        })
     }
 }
